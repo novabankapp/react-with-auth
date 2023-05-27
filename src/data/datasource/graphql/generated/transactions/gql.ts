@@ -1,0 +1,77 @@
+/* eslint-disable */
+import * as types from './graphql';
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+
+/**
+ * Map of all GraphQL operations in the project.
+ *
+ * This map has several performance disadvantages:
+ * 1. It is not tree-shakeable, so it will include all operations in the project.
+ * 2. It is not minifiable, so the string of a GraphQL query will be multiple times inside the bundle.
+ * 3. It does not support dead code elimination, so it will add unused operations.
+ *
+ * Therefore it is highly recommended to use the babel or swc plugin for production.
+ */
+const documents = {
+    "query getBankTransactionPaging($bankRef: String, $page: Int, $size: Int){\n    bankTransactionRefPaging(bankRef: $bankRef, page: $page, size: $size){\n         count\n         transactionRefs{\n         trn\n         customer_ref\n         used\n         amount\n         service_id\n         bank_id\n         created_at\n         expiry_date\n         merchant {\n             name\n             unique_id\n             id\n         }\n         bank {\n             name\n             unique_id\n             id\n         }\n    }\n  }\n}": types.GetBankTransactionPagingDocument,
+    "query getCustomerTransactionPaging($customerRef: String, $page: Int, $size: Int){\n    customerTransactionRefPaging(customerRef: $customerRef, page: $page, size: $size){\n        count\n        transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}": types.GetCustomerTransactionPagingDocument,
+    "query getMerchantTransactionPaging($merchantRef: String, $page: Int, $size: Int){\n    merchantTransactionRefPaging(merchantRef: $merchantRef, page: $page, size: $size){\n        count\n    transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}": types.GetMerchantTransactionPagingDocument,
+    "query getUnusedTransactionRefPaging($page: Int, $size: Int){\n    unusedTransactionRefPaging(page: $page, size: $size){\n        count\n       \n        transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}": types.GetUnusedTransactionRefPagingDocument,
+    "query getUsedTransactionRefPaging($page: Int, $size: Int){\n    usedTransactionRefPaging(page: $page, size: $size){\n        count\n         transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}": types.GetUsedTransactionRefPagingDocument,
+    "query getAllTransactionRefPaging($page: Int, $size: Int){\n    allTransactionRefPaging(page: $page, size: $size){\n        count\n         transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}": types.GetAllTransactionRefPagingDocument,
+    "query getExpiredTransactionRefPaging($page: Int, $size: Int){\n    expiredTransactionRefPaging(page: $page, size: $size){\n        count\n         transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}": types.GetExpiredTransactionRefPagingDocument,
+    "query getActiveTransactionRefPaging($page: Int, $size: Int){\n    activeTransactionRefPaging(page: $page, size: $size){\n        count\n         transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}": types.GetActiveTransactionRefPagingDocument,
+};
+
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ *
+ *
+ * @example
+ * ```ts
+ * const query = graphql(`query GetUser($id: ID!) { user(id: $id) { name } }`);
+ * ```
+ *
+ * The query argument is unknown!
+ * Please regenerate the types.
+ */
+export function graphql(source: string): unknown;
+
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "query getBankTransactionPaging($bankRef: String, $page: Int, $size: Int){\n    bankTransactionRefPaging(bankRef: $bankRef, page: $page, size: $size){\n         count\n         transactionRefs{\n         trn\n         customer_ref\n         used\n         amount\n         service_id\n         bank_id\n         created_at\n         expiry_date\n         merchant {\n             name\n             unique_id\n             id\n         }\n         bank {\n             name\n             unique_id\n             id\n         }\n    }\n  }\n}"): (typeof documents)["query getBankTransactionPaging($bankRef: String, $page: Int, $size: Int){\n    bankTransactionRefPaging(bankRef: $bankRef, page: $page, size: $size){\n         count\n         transactionRefs{\n         trn\n         customer_ref\n         used\n         amount\n         service_id\n         bank_id\n         created_at\n         expiry_date\n         merchant {\n             name\n             unique_id\n             id\n         }\n         bank {\n             name\n             unique_id\n             id\n         }\n    }\n  }\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "query getCustomerTransactionPaging($customerRef: String, $page: Int, $size: Int){\n    customerTransactionRefPaging(customerRef: $customerRef, page: $page, size: $size){\n        count\n        transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}"): (typeof documents)["query getCustomerTransactionPaging($customerRef: String, $page: Int, $size: Int){\n    customerTransactionRefPaging(customerRef: $customerRef, page: $page, size: $size){\n        count\n        transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "query getMerchantTransactionPaging($merchantRef: String, $page: Int, $size: Int){\n    merchantTransactionRefPaging(merchantRef: $merchantRef, page: $page, size: $size){\n        count\n    transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}"): (typeof documents)["query getMerchantTransactionPaging($merchantRef: String, $page: Int, $size: Int){\n    merchantTransactionRefPaging(merchantRef: $merchantRef, page: $page, size: $size){\n        count\n    transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "query getUnusedTransactionRefPaging($page: Int, $size: Int){\n    unusedTransactionRefPaging(page: $page, size: $size){\n        count\n       \n        transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}"): (typeof documents)["query getUnusedTransactionRefPaging($page: Int, $size: Int){\n    unusedTransactionRefPaging(page: $page, size: $size){\n        count\n       \n        transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "query getUsedTransactionRefPaging($page: Int, $size: Int){\n    usedTransactionRefPaging(page: $page, size: $size){\n        count\n         transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}"): (typeof documents)["query getUsedTransactionRefPaging($page: Int, $size: Int){\n    usedTransactionRefPaging(page: $page, size: $size){\n        count\n         transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "query getAllTransactionRefPaging($page: Int, $size: Int){\n    allTransactionRefPaging(page: $page, size: $size){\n        count\n         transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}"): (typeof documents)["query getAllTransactionRefPaging($page: Int, $size: Int){\n    allTransactionRefPaging(page: $page, size: $size){\n        count\n         transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "query getExpiredTransactionRefPaging($page: Int, $size: Int){\n    expiredTransactionRefPaging(page: $page, size: $size){\n        count\n         transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}"): (typeof documents)["query getExpiredTransactionRefPaging($page: Int, $size: Int){\n    expiredTransactionRefPaging(page: $page, size: $size){\n        count\n         transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "query getActiveTransactionRefPaging($page: Int, $size: Int){\n    activeTransactionRefPaging(page: $page, size: $size){\n        count\n         transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}"): (typeof documents)["query getActiveTransactionRefPaging($page: Int, $size: Int){\n    activeTransactionRefPaging(page: $page, size: $size){\n        count\n         transactionRefs{\n        trn\n        customer_ref\n        used\n        amount\n        service_id\n        bank_id\n        created_at\n        expiry_date\n        merchant {\n            name\n            unique_id\n            id\n        }\n        bank {\n            name\n            unique_id\n            id\n        }\n    }\n  }\n}"];
+
+export function graphql(source: string) {
+  return (documents as any)[source] ?? {};
+}
+
+export type DocumentType<TDocumentNode extends DocumentNode<any, any>> = TDocumentNode extends DocumentNode<  infer TType,  any>  ? TType  : never;

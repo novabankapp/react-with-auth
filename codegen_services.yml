@@ -1,0 +1,12 @@
+overwrite: true
+schema: "https://b7c6-102-70-2-135.ngrok-free.app/api/merchantql"
+documents: "src/data/dataSource/graphql/merchants/*.ts"
+generates:
+  src/data/dataSource/graphql/generated/merchants/:
+    preset: "client"
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+    config:
+      withHooks: true

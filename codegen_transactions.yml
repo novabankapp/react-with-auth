@@ -1,0 +1,12 @@
+overwrite: true
+schema: "https://389b-102-70-3-68.ngrok-free.app/api/transql"
+documents: "src/data/dataSource/graphql/transactions/*.ts"
+generates:
+  src/data/dataSource/graphql/generated/transactions/:
+    preset: "client"
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+    config:
+      withHooks: true
