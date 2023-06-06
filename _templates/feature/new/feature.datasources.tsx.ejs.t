@@ -1,4 +1,11 @@
 ---
-to: src/data/datasource/sources/<%=name%>/info.txt
+to: src/data/datasource/sources/<%=name%>/<%=name%>DataSource.ts
 ---
-sources - <%=name%>
+
+
+
+type <%=name%>DataProps = {};
+
+export interface <%=name%>DataSource{
+ 
+}
